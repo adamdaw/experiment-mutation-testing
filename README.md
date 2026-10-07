@@ -16,7 +16,7 @@ The tool versions are pinned by `package.json` and `package-lock.json`:
 - Node.js 24.21.0
 - Stryker 10.0.0 (`@stryker-mutator/core`)
 
-The results were reproduced on 2026-10-07. Raw Stryker JSON is committed as `results/full.json` and `results/reduced.json`; its source-file paths are repository-relative.
+The results were reproduced on 2026-10-07. Raw Stryker JSON is committed as `results/full.json` and `results/reduced.json`. The runs happened in a container mounted at the neutral path `/work`, which is why the reports' `projectRoot` and diagnostic stack traces use that path.
 
 ## Reproduce
 
@@ -50,7 +50,15 @@ All nine tests pass. Every source file reports 100% line, branch, and function c
 | `src/discount.js` | 2 | 1 | 1 | 50.00% |
 | **Total** | **7** | **3** | **4** | **42.86%** |
 
-The two surviving `dates.js` mutants are the same in both runs. Only the denominator changes: the full run kills 9 of 11 mutants, while the reduced run kills 2 of 4.
+The two surviving `dates.js` mutants are the same in both runs. The survivors are unchanged; only the killed count, and with it the denominator, changes: the full run kills 9 of 11 mutants, while the reduced run kills 2 of 4.
+
+The reduced JSON contains 31 entries, but 24 have status `Ignored` because their operators are excluded. Its score uses the seven valid mutants—three killed plus four survived—not all report entries.
+
+### Why the full report skips mutant ID 7
+
+Stryker assigns candidate IDs before applying mutator filters. Its `CallExpression` mutator emits a call-removal candidate only when it is the sole active mutant in that syntax scope. In the full run, the active `ArrowFunction` candidate for the callback is in the same scope, so Stryker filters out the call-removal candidate (ID 7) and reports 30 mutants. In the reduced run, both operators are excluded; excluded candidates carry an ignore reason and are not active inputs to that filter. The call-removal candidate therefore remains in the JSON as `Ignored`, alongside the other excluded candidates. It was not run and does not enter the score.
+
+Two clean-checkout full runs reproduced the same 30 identities as `results/full.json` with no additions or omissions. Their clear-text output is committed as `results/full-run-1.txt` and `results/full-run-2.txt`; the reduced clear-text output is `results/reduced-run.txt`.
 
 The experiment therefore gives a concrete counterexample to treating complete coverage as proof that tests detect incorrect behavior. It also shows that changing only the operator set changes the reported score, from 50.00% to 42.86% overall and from 81.82% to 50.00% for `dates.js`.
 

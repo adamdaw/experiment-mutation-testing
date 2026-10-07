@@ -1,0 +1,111 @@
+npm notice
+npm notice New major version of npm available! 11.19.0 -> 12.2.0
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.0
+npm notice To update run: npm install -g npm@12.2.0
+npm notice
+20:23:02 (31) INFO ProjectReader Found 3 of 16 file(s) to be mutated.
+20:23:02 (31) INFO Instrumenter Instrumented 3 source file(s) with 30 mutant(s)
+20:23:02 (31) INFO ConcurrencyTokenProvider Creating 31 test runner process(es).
+20:23:02 (31) INFO DryRunExecutor Starting initial test run (command test runner with "off" coverage analysis). This may take a while.
+20:23:02 (31) INFO DryRunExecutor Initial test run succeeded. Ran 1 tests in 0 seconds (net 169 ms, overhead 1 ms).
+
+All tests
+  ✓ All tests (killed 15)
+
+[Survived] ConditionalExpression
+src/alerts.js:5:7
+-     if (event.severity !== 'critical') {
++     if (true) {
+
+[Survived] ConditionalExpression
+src/alerts.js:5:7
+-     if (event.severity !== 'critical') {
++     if (false) {
+
+[Survived] BlockStatement
+src/alerts.js:5:38
+-     if (event.severity !== 'critical') {
+-       return false;
+-     }
++     if (event.severity !== 'critical') {}
+
+[Survived] StringLiteral
+src/alerts.js:5:26
+-     if (event.severity !== 'critical') {
++     if (event.severity !== "") {
+
+[Survived] BooleanLiteral
+src/alerts.js:9:10
+-     return true;
++     return false;
+
+[Survived] BlockStatement
+src/alerts.js:4:46
+-   export function raiseCritical(event, mailer) {
+-     if (event.severity !== 'critical') {
+-       return false;
+-     }
+-     queueMicrotask(() => mailer.send(`ALERT: ${event.name}`));
+-     return true;
+-   }
++   export function raiseCritical(event, mailer) {}
+
+[Survived] StringLiteral
+src/alerts.js:8:36
+-     queueMicrotask(() => mailer.send(`ALERT: ${event.name}`));
++     queueMicrotask(() => mailer.send(``));
+
+[Survived] EqualityOperator
+src/alerts.js:5:7
+-     if (event.severity !== 'critical') {
++     if (event.severity === 'critical') {
+
+[Survived] BooleanLiteral
+src/alerts.js:6:12
+-       return false;
++       return true;
+
+[Survived] ArrowFunction
+src/alerts.js:8:18
+-     queueMicrotask(() => mailer.send(`ALERT: ${event.name}`));
++     queueMicrotask(() => undefined);
+
+[Survived] EqualityOperator
+src/dates.js:4:7
+-     if (day > 31) {
++     if (day >= 31) {
+
+[Survived] EqualityOperator
+src/dates.js:7:7
+-     if (day < 1) {
++     if (day <= 1) {
+
+[Survived] ConditionalExpression
+src/discount.js:4:7
+-     if (pct > 50) {
++     if (false) {
+
+[Survived] BlockStatement
+src/discount.js:4:17
+-     if (pct > 50) {
+-       pct = 50;
+-     }
++     if (pct > 50) {}
+
+[Survived] EqualityOperator
+src/discount.js:4:7
+-     if (pct > 50) {
++     if (pct >= 50) {
+
+Ran 1.00 tests per mutant on average.
+-------------|------------------|----------|-----------|------------|----------|----------|
+             | % Mutation score |          |           |            |          |          |
+File         |  total | covered | # killed | # timeout | # survived | # no cov | # errors |
+-------------|--------|---------|----------|-----------|------------|----------|----------|
+All files    |  50.00 |   50.00 |       15 |         0 |         15 |        0 |        0 |
+ alerts.js   |   0.00 |    0.00 |        0 |         0 |         10 |        0 |        0 |
+ dates.js    |  81.82 |   81.82 |        9 |         0 |          2 |        0 |        0 |
+ discount.js |  66.67 |   66.67 |        6 |         0 |          3 |        0 |        0 |
+-------------|--------|---------|----------|-----------|------------|----------|----------|
+20:23:03 (31) INFO JsonReporter Your report can be found at: file:///work/results/full.json
+20:23:03 (31) INFO MutationTestExecutor Done in 1 second.

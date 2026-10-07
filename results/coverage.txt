@@ -1,0 +1,33 @@
+
+> experiment-mutation-testing@1.0.0 coverage
+> node --test --experimental-test-coverage 'test/*.test.js'
+
+✔ raises an alert for a critical event (1.77722ms)
+✔ ignores a non-critical event (1.8895ms)
+✔ leaves a day inside the range untouched (2.247842ms)
+✔ clamps a day past the end of the month (0.322294ms)
+✔ clamps a day below the first (0.158327ms)
+✔ leaves the upper bound untouched (0.126918ms)
+✔ leaves the lower bound untouched (0.131396ms)
+✔ applies ten percent (1.62252ms)
+✔ handles a large percentage (0.279844ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 122.731103
+ℹ start of coverage report
+ℹ -------------------------------------------------------------
+ℹ file         | line % | branch % | funcs % | uncovered lines
+ℹ -------------------------------------------------------------
+ℹ src          |        |          |         |
+ℹ  alerts.js   | 100.00 |   100.00 |  100.00 |
+ℹ  dates.js    | 100.00 |   100.00 |  100.00 |
+ℹ  discount.js | 100.00 |   100.00 |  100.00 |
+ℹ -------------------------------------------------------------
+ℹ all files    | 100.00 |   100.00 |  100.00 |
+ℹ -------------------------------------------------------------
+ℹ end of coverage report

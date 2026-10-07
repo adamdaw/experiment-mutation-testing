@@ -1,0 +1,46 @@
+20:23:05 (19) INFO ProjectReader Found 3 of 17 file(s) to be mutated.
+20:23:05 (19) INFO Instrumenter Instrumented 3 source file(s) with 31 mutant(s)
+20:23:05 (19) INFO ConcurrencyTokenProvider Creating 31 test runner process(es).
+20:23:05 (19) INFO DryRunExecutor Starting initial test run (command test runner with "off" coverage analysis). This may take a while.
+20:23:05 (19) INFO DryRunExecutor Initial test run succeeded. Ran 1 tests in 0 seconds (net 150 ms, overhead 0 ms).
+
+All tests
+  ✓ All tests (killed 3)
+
+[Survived] EqualityOperator
+src/alerts.js:5:7
+-     if (event.severity !== 'critical') {
++     if (event.severity === 'critical') {
+
+[Survived] EqualityOperator
+src/dates.js:7:7
+-     if (day < 1) {
++     if (day <= 1) {
+
+[Survived] EqualityOperator
+src/dates.js:4:7
+-     if (day > 31) {
++     if (day >= 31) {
+
+[Survived] EqualityOperator
+src/discount.js:4:7
+-     if (pct > 50) {
++     if (pct >= 50) {
+
+Ran 0.23 tests per mutant on average.
+-------------|------------------|----------|-----------|------------|----------|----------|
+             | % Mutation score |          |           |            |          |          |
+File         |  total | covered | # killed | # timeout | # survived | # no cov | # errors |
+-------------|--------|---------|----------|-----------|------------|----------|----------|
+All files    |  42.86 |   42.86 |        3 |         0 |          4 |        0 |        0 |
+ alerts.js   |   0.00 |    0.00 |        0 |         0 |          1 |        0 |        0 |
+ dates.js    |  50.00 |   50.00 |        2 |         0 |          2 |        0 |        0 |
+ discount.js |  50.00 |   50.00 |        1 |         0 |          1 |        0 |        0 |
+-------------|--------|---------|----------|-----------|------------|----------|----------|
+20:23:05 (19) INFO JsonReporter Your report can be found at: file:///work/results/reduced.json
+20:23:05 (19) INFO MutationTestExecutor Done in 0 seconds.
+npm notice
+npm notice New major version of npm available! 11.19.0 -> 12.2.0
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.0
+npm notice To update run: npm install -g npm@12.2.0
+npm notice
