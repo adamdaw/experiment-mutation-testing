@@ -1,0 +1,19 @@
+{
+  "$schema": "./node_modules/@stryker-mutator/core/schema/stryker-schema.json",
+  "packageManager": "npm",
+  "reporters": ["clear-text", "json"],
+  "testRunner": "command",
+  "commandRunner": { "command": "node --test 'test/*.test.js'" },
+  "coverageAnalysis": "off",
+  "mutate": ["src/**/*.js"],
+  "mutator": {
+    "excludedMutations": [
+      "ArithmeticOperator", "ArrayDeclaration", "ArrowFunction", "AssignmentOperator",
+      "BlockStatement", "BooleanLiteral", "CallExpression", "ConditionalExpression",
+      "LogicalOperator", "MethodExpression", "ObjectLiteral", "OptionalChaining",
+      "Regex", "StringLiteral", "UnaryOperator", "UpdateOperator"
+    ]
+  },
+  "jsonReporter": { "fileName": "results/reduced.json" },
+  "thresholds": { "high": 100, "low": 0, "break": null }
+}
