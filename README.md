@@ -67,3 +67,11 @@ The experiment therefore gives a concrete counterexample to treating complete co
 These are tiny, authored fixtures designed to make specific testing failures visible. The measurements describe only these fixtures with the pinned versions; they are not a general mutation-survival rate, a benchmark of real-world projects, or evidence that one operator set is universally preferable. Some surviving mutants can also be behaviorally equivalent for the exercised domain, so a survivor is a prompt for inspection rather than automatically a defect.
 
 For the broader argument and context, see [Mutation Testing: Who Tests the Tests?](https://adamdaw.com/writing/mutation-testing-who-tests-the-tests/).
+
+## License
+
+Code in `src/` and `test/`, along with the configuration files and `package.json`, is licensed under the [MIT License](LICENSE).
+
+`README.md`, `results/`, and other prose and data are licensed under the [Creative Commons Attribution 4.0 International License](LICENSE-CC-BY-4.0.txt).
+
+Third-party dependencies installed through npm, including Stryker, retain their own licenses and are not covered by this repository's licenses.
