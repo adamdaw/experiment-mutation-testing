@@ -70,8 +70,8 @@ For the broader argument and context, see [Mutation Testing: Who Tests the Tests
 
 ## License
 
-Code in `src/` and `test/`, along with the configuration files and `package.json`, is licensed under the [MIT License](LICENSE).
+Code in `src/` and `test/`, along with the configuration files `stryker.conf.json`, `stryker.reduced.conf.json`, `.gitignore`, `package.json` and `package-lock.json`, is licensed under the [MIT License](LICENSE).
 
-`README.md`, `results/`, and other prose and data are licensed under the [Creative Commons Attribution 4.0 International License](LICENSE-CC-BY-4.0.txt).
+`README.md`, `results/`, and other prose and data are © 2026 Adam Daw and licensed under the [Creative Commons Attribution 4.0 International License](LICENSE-CC-BY-4.0.txt).
 
 Third-party dependencies installed through npm, including Stryker, retain their own licenses and are not covered by this repository's licenses.
