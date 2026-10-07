@@ -1,0 +1,11 @@
+{
+  "$schema": "./node_modules/@stryker-mutator/core/schema/stryker-schema.json",
+  "packageManager": "npm",
+  "reporters": ["clear-text", "json"],
+  "testRunner": "command",
+  "commandRunner": { "command": "node --test 'test/*.test.js'" },
+  "coverageAnalysis": "off",
+  "mutate": ["src/**/*.js"],
+  "jsonReporter": { "fileName": "results/full.json" },
+  "thresholds": { "high": 100, "low": 0, "break": null }
+}

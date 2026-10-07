@@ -1,0 +1,15 @@
+{
+  "name": "experiment-mutation-testing",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "A reproducible experiment comparing code coverage and mutation testing.",
+  "engines": { "node": "24.21.0" },
+  "scripts": {
+    "test": "node --test 'test/*.test.js'",
+    "coverage": "node --test --experimental-test-coverage 'test/*.test.js'",
+    "mutation": "stryker run",
+    "mutation:reduced": "stryker run stryker.reduced.conf.json"
+  },
+  "devDependencies": { "@stryker-mutator/core": "10.0.0" }
+}
